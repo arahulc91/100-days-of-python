@@ -1,23 +1,15 @@
+import pyfiglet
 import requests
 
 
-ascii_art = """
- _                                             
-| |                                            
-| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
-| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ 
-| | | | (_| | | | | (_| | | | | | | (_| | | | |
-|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|
-                    __/ |                      
-                   |___/                       
-"""
-
-print(ascii_art)
+print(pyfiglet.figlet_format("hangman"))
+query = "marvel superheros"
+print("Hint: ", query)
 
 
 def generate_random_word():
     try:
-        response = requests.get("https://random-word-api.vercel.app/api?words=1")
+        response = requests.get(f"https://api.talanoa-ai.com/?query={query}&words=1")
         response.raise_for_status()
         return list(response.json()[0])
     except requests.RequestException as e:
