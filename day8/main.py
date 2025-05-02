@@ -44,25 +44,30 @@ def decode(message: str, shift_number: int):
     print(f"Here's your decoded result: {decoded_message}")
 
 
-while True:
-    text = "caesar cipher"
-    ascii_art = pyfiglet.figlet_format(text)
-    print(ascii_art)
-    print("Type 'encode' to encrypt, type 'decode' to decrypt:")
-    todo = input().strip()
-    print("Type your message:")
-    message = input().strip()
-    print("Type the shift number:")
-    shift_number = input().strip()
+def main():
+    while True:
+        text = "caesar cipher"
+        ascii_art = pyfiglet.figlet_format(text)
+        print(ascii_art)
+        print("Type 'encode' to encrypt, type 'decode' to decrypt:")
+        todo = input().strip()
+        print("Type your message:")
+        message = input().strip()
+        print("Type the shift number:")
+        shift_number = input().strip()
 
-    if todo.casefold() == "encode":
-        encode(message, shift_number)
-    elif todo.casefold() == "decode":
-        decode(message, shift_number)
-    else:
-        print("Incorrect choice. Please type 'encode' or 'decode'.")
+        if todo.casefold() == "encode":
+            encode(message, shift_number)
+        elif todo.casefold() == "decode":
+            decode(message, shift_number)
+        else:
+            print("Incorrect choice. Please type 'encode' or 'decode'.")
 
-    print("Type 'yes' if you want to go again. Otherwise type 'no'.")
-    if input().strip().casefold() != "yes":
-        break
-    os.system("clear" if os.name != "nt" else "cls")
+        print("Type 'yes' if you want to go again. Otherwise type 'no'.")
+        if input().strip().casefold() != "yes":
+            break
+        os.system("clear" if os.name != "nt" else "cls")
+
+
+if __name__ == "__main__":
+    main()
